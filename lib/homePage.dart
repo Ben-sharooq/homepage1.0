@@ -1,7 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:pro/mycarousal.dart';
 import 'package:pro/product%20selling%20page.dart';
 
 class HomePage extends StatelessWidget {
+  final List<String> featuredProductImages = [
+    'assets/images/featuredProductImages4.jpeg',
+    'assets/images/featuredProductImages5.jpeg',
+    'assets/images/featuredProductImages2.jpeg',
+    'assets/images/featuredProductImages1.jpeg',
+    'assets/images/featuredProductImages3.jpeg',
+  ];
+
+  final List<String> categories = [
+    'Supplyments',
+    ' Cloths',
+    ' bottles',
+    'Bags',
+    'Shoes',
+    'accessories',
+  ];
+
+  final List<String> categoryImages = [
+    'assets/images/category1.jpeg',
+    'assets/images/category2.jpeg',
+    'assets/images/category3.jpeg',
+    'assets/images/category4.jpeg',
+    'assets/images/category5.jpeg',
+    'assets/images/category6.jpeg',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,26 +54,22 @@ class HomePage extends StatelessWidget {
               height: 200.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: featuredProductImages.length,
                 itemBuilder: (context, index) {
                   return Container(
                     width: 200.0,
                     margin: EdgeInsets.symmetric(horizontal: 8.0),
                     color: Colors.blue,
                     child: Center(
-                      child: Text(
-                        'Featured Product ${index + 1}',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                        ),
-                      ),
+                      child:  Image.asset(
+                      featuredProductImages[index],
+                  fit: BoxFit.fill,
                     ),
-                  );
+
+                  ));
                 },
               ),
             ),
-            SizedBox(height: 16.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
@@ -64,29 +87,27 @@ class HomePage extends StatelessWidget {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
-              itemCount: 6,
+              itemCount: categories.length,
               itemBuilder: (context, index) {
                 return Card(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.category),
+                      Image.asset(
+                        categoryImages[index],
+                        fit: BoxFit.fill,
+                        width: 180.0,
+                        height: 150.0,
+                      ),
                       SizedBox(height: 8.0),
                       Text(
-                        'Category ${index + 1}',
+                        categories[index],
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      ElevatedButton(onPressed: () {
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) =>  ProductSellingPage()),
-                          );
-                        };
-                      }, child:Text ('Buy Now'),),
                     ],
                   ),
                 );
