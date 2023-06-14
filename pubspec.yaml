@@ -75,6 +75,13 @@ flutter:
     - assets/images/category4.jpeg
     - assets/images/category5.jpeg
     - assets/images/category6.jpeg
+    - assets/supplyments/Dymatize.webp
+    - assets/supplyments/MB.png
+    - assets/supplyments/MT creatine.jpeg
+    - assets/supplyments/MV.jpeg
+    - assets/supplyments/ONcreatine.jpeg
+    - assets/supplyments/ONgold.webp
+    - assets/supplyments/syntha.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

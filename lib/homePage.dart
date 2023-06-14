@@ -1,11 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:pro/SupplymentPage.dart';
+import 'package:pro/bottom%20navigation.dart';
 import 'package:pro/mycarousal.dart';
 import 'package:pro/product%20selling%20page.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> featuredProductImages = [
     'assets/images/featuredProductImages4.jpeg',
-    'assets/images/featuredProductImages5.jpeg',
+    //'assets/images/featuredProductImages5.jpeg',
     'assets/images/featuredProductImages2.jpeg',
     'assets/images/featuredProductImages1.jpeg',
     'assets/images/featuredProductImages3.jpeg',
@@ -33,7 +37,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gym Elite Supplement Store'),
+        title: Text('Gym Elite Store'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -94,11 +98,19 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        categoryImages[index],
-                        fit: BoxFit.fill,
-                        width: 180.0,
-                        height: 150.0,
+                      GestureDetector(
+                        onTap:(){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder:(context) => Supplyment_Page()),
+                          );
+                        },
+                        child: Image.asset(
+                          categoryImages[index],
+                          fit: BoxFit.fill,
+                          width: MediaQuery.of(context).size.width*0.50,
+                          height:MediaQuery.of(context).size.width*0.39,
+                        ),
                       ),
                       SizedBox(height: 8.0),
                       Text(
@@ -116,6 +128,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-    );
+     );
   }
 }

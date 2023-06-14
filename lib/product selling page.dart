@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:pro/SBuypage.dart';
 
 class ProductSellingPage extends StatelessWidget {
   @override
@@ -33,7 +34,7 @@ class ProductSellingPage extends StatelessWidget {
           ),
         ),
             Image.asset(
-              "assets/images/whey.png",
+              'assets/supplyments/Dymatize.webp',
               height: 200,
               width: 200,
             ),
@@ -43,7 +44,7 @@ class ProductSellingPage extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Product Title',
+                    'Dymatize',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -87,8 +88,10 @@ class ProductSellingPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // TODO: Add the product to the cart
-              },
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage(supplementName:'Dymatize', supplementPrice: '2999'),
+                ),);
+
+                 },
               child: Text('Buy Now'),
             ),
           ],
